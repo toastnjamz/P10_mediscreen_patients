@@ -21,6 +21,11 @@ public class PatientController {
 
     private static final Logger log = LoggerFactory.getLogger(PatientController.class);
 
+    /**
+     * HTTP GET request loads a list of patients
+     * @param model
+     * @return ModelAndView
+     */
     @GetMapping(value = "/patient/list")
     public ModelAndView getAllPatients(Model model) {
         ModelAndView mav = new ModelAndView();
@@ -30,6 +35,11 @@ public class PatientController {
         return mav;
     }
 
+    /**
+     * HTTP GET request loads new patient entry form
+     * @param model
+     * @return ModelAndView
+     */
     @GetMapping("/patient/add")
     public ModelAndView addPatientForm(Model model) {
         ModelAndView mav = new ModelAndView();
@@ -39,6 +49,13 @@ public class PatientController {
         return mav;
     }
 
+    /**
+     * HTTP POST request validates and creates a new patient entry
+     * @param patient
+     * @param result
+     * @param model
+     * @return ModelAndView
+     */
     @PostMapping(value = "/patient/validate")
     public ModelAndView validate(@Valid Patient patient, BindingResult result, Model model) {
         ModelAndView mav = new ModelAndView();
@@ -53,6 +70,12 @@ public class PatientController {
         return mav;
     }
 
+    /**
+     * HTTP GET request loads an existing patient update form
+     * @param id
+     * @param model
+     * @return ModelAndView
+     */
     @GetMapping("/patient/update/{id}")
     public ModelAndView showUpdateForm(@PathVariable("id") Integer id, Model model) {
         ModelAndView mav = new ModelAndView();
@@ -78,6 +101,14 @@ public class PatientController {
 //        return mav;
 //    }
 
+    /**
+     * HTTP POST request updates the requested patient demographic information
+     * @param id
+     * @param patient
+     * @param result
+     * @param model
+     * @return ModelAndView
+     */
     @PostMapping("/patient/update/{id}")
     public ModelAndView updatePatient(@PathVariable("id") Integer id, @Valid Patient patient,
                                   BindingResult result, Model model) {
@@ -94,6 +125,12 @@ public class PatientController {
         return mav;
     }
 
+    /**
+     * HTTP GET request deletes the requested patient
+     * @param id
+     * @param model
+     * @return ModelAndView
+     */
     @GetMapping("/patient/delete/{id}")
     public ModelAndView deletePatient(@PathVariable("id") Integer id, Model model) {
         ModelAndView mav = new ModelAndView();

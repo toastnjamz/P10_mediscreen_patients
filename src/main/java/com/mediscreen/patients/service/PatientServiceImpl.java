@@ -18,11 +18,20 @@ public class PatientServiceImpl implements PatientService {
         this.patientRepository = patientRepository;
     }
 
+    /**
+     * Gets a list of all patients in the repository
+     * @return List<Patient>
+     */
     @Override
     public List<Patient> findAllPatients() {
         return patientRepository.findAll();
     }
 
+    /**
+     * Gets a patient by id
+     * @param id
+     * @return Patient
+     */
     @Override
     public Patient findPatientById(Integer id) {
         Optional<Patient> patientOptional = patientRepository.findById(id);
@@ -43,11 +52,20 @@ public class PatientServiceImpl implements PatientService {
 //        return null;
 //    }
 
+    /**
+     * Saves a patient to the repository
+     * @param patient
+     * @return Patient
+     */
     @Override
     public Patient createPatient(Patient patient) {
         return patientRepository.save(patient);
     }
 
+    /**
+     * Updates an existing patient's demographic information in the repository
+     * @param patient
+     */
     @Override
     public void updatePatient(Patient patient) {
         Optional<Patient> patientOptional = patientRepository.findById(patient.getId());
@@ -56,6 +74,10 @@ public class PatientServiceImpl implements PatientService {
         }
     }
 
+    /**
+     * Deletes an existing patient from the repository
+     * @param id
+     */
     @Override
     public void deletePatientById(Integer id) {
         Optional<Patient> patientOptional = patientRepository.findById(id);
