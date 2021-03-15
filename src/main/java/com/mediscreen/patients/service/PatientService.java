@@ -10,8 +10,6 @@ public interface PatientService {
 
     public Patient findPatientById(Integer id);
 
-//    public Patient findPatientByFamilyName(String familyName);
-
     public Patient createPatient(Patient patient);
 
     public void updatePatient(Patient patient);

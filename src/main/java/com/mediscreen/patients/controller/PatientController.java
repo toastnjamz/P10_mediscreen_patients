@@ -89,18 +89,6 @@ public class PatientController {
         return mav;
     }
 
-//    @GetMapping(value = "/patient/update/{familyName}")
-//    public ModelAndView getPatientById(@PathVariable("familyName") String familyName, Model model) {
-//        ModelAndView mav = new ModelAndView();
-//        Patient patient = patientService.findPatientByFamilyName(familyName);
-//        if (patient != null) {
-//            model.addAttribute("patient", patient);
-//            mav.setViewName("patient/update");
-//            log.info("GET request received for getPatientById()");
-//        }
-//        return mav;
-//    }
-
     /**
      * HTTP POST request updates the requested patient demographic information
      * @param id

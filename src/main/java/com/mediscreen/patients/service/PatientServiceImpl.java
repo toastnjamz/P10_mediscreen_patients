@@ -42,16 +42,6 @@ public class PatientServiceImpl implements PatientService {
         return null;
     }
 
-//    @Override
-//    public Patient findPatientByFamilyName(String familyName) {
-//        Optional<Patient> patientOptional = patientRepository.findByFamilyName(familyName);
-//        if (patientOptional.isPresent()) {
-//            Patient patient = patientOptional.get();
-//            return patient;
-//        }
-//        return null;
-//    }
-
     /**
      * Saves a patient to the repository
      * @param patient
