@@ -1,8 +1,10 @@
 package com.mediscreen.patients.controller;
 
 import com.mediscreen.patients.domain.Patient;
+import com.mediscreen.patients.domain.PatientListWrapper;
 import com.mediscreen.patients.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,18 @@ public class PatientController {
     private PatientService patientService;
 
     private static final Logger log = LoggerFactory.getLogger(PatientController.class);
+
+    /**
+     * HTTP GET request for external microservices
+     * @return wrapper class with list of all patients
+     */
+    @GetMapping(value = "/patientsList")
+    public PatientListWrapper getPatientsList() {
+        PatientListWrapper patientListWrapper = new PatientListWrapper();
+        log.info("GET request received for getPatientList()");
+        patientListWrapper.setPatientList(patientService.findAllPatients());
+        return patientListWrapper;
+    }
 
     /**
      * HTTP GET request loads a list of patients
